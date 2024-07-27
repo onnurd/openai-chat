@@ -1,0 +1,99 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #212121;
+    border-bottom: 1px solid #212121;
+    position: fixed;
+    width: 98%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .title {
+    font-size: 30px;
+    color: #6f6f6f;
+  }
+  
+  .title-container:hover .title {
+    color: #ffffff;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-button, .signup-button {
+    background: none;
+    border: 1px solid #212121;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  .login-button {
+    font-size: 17px;
+    background-color: white;
+    color: black;
+  }
+  
+  .login-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .signup-button {
+    font-size: 17px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid #6f6f6f;
+  }
+  
+  .signup-button:hover {
+    background-color: #6f6f6f;
+  }
+  
+  .logo-title-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .dropdown-arrow {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    background-color: #2a2b32;
+    border: 1px solid #5f6368;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 1001;
+  }
+  
+  .dropdown-header {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-content {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  

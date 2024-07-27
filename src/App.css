@@ -1,0 +1,68 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #212121;
+  color: white;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 60px;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.messages {
+  flex: 1;
+  padding: 50px;
+  overflow-y: auto;
+  background-color: #2f2f2f;
+  color: #2f2f2f;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  background-color: #2f2f2f;
+  color: white;
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+  border: 1px solid #2f2f2f;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  background-color: #2f2f2f;
+  color: white;
+  margin-right: 10px;
+}
+
+.input-container input::placeholder {
+  color: #a0a0a0;
+}
+
+.icon-button, .send-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a0a0a0;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.icon-button:hover, .send-button:hover {
+  color: white;
+}
