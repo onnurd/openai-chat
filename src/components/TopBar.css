@@ -6,7 +6,7 @@
     background-color: #212121;
     border-bottom: 1px solid #212121;
     position: fixed;
-    width: 98%;
+    width: 97%;
     top: 0;
     z-index: 1000;
   }
@@ -30,13 +30,15 @@
     border: 1px solid #212121;
     border-radius: 30px;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 40px;
     margin-left: 20px;
     cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
   }
   
   .login-button {
-    font-size: 17px;
+    font-size: 15px;
     background-color: white;
     color: black;
   }
@@ -46,7 +48,7 @@
   }
   
   .signup-button {
-    font-size: 17px;
+    font-size: 15px;
     background-color: transparent;
     color: white;
     border: 2px solid #6f6f6f;

@@ -8,6 +8,11 @@ const TopBar: React.FC = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+  const buttons = [
+    { text: 'Log in', className: 'login-button' },
+    { text: 'Sign up', className: 'signup-button' }
+  ];
+
   return (
     <div className="top-bar">
       <div className="logo-title-container" onClick={toggleDropdown}>
@@ -24,17 +29,19 @@ const TopBar: React.FC = () => {
             Get smarter responses, upload files, analyze images, and browse the web with our latest model.
           </div>
           <div className="dropdown-buttons">
-            <button className="login-button">Log in</button>
-            <button className="signup-button">Sign up</button>
+            {buttons.map((button, index) => (
+              <button key={index} className={button.className}>{button.text}</button>
+            ))}
           </div>
         </div>
       )}
       <div className="buttons">
-        <button className="login-button">Log in</button>
-        <button className="signup-button">Sign up</button>
+        {buttons.map((button, index) => (
+          <button key={index} className={button.className}>{button.text}</button>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default TopBar;

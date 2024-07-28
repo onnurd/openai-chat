@@ -1,30 +1,62 @@
-import React, { useState } from 'react';
-import ChatWindow from './ChatWindow';
-import MessageInput from './MessageInput';
+import React, { useState, useEffect, useRef } from 'react';
 import './Chat.css';
 import { fetchOpenAIResponse } from '../services/openaiService';
 
-const Chat: React.FC = () => {
-  const [messages, setMessages] = useState<string[]>([]);
-  const [input, setInput] = useState<string>('');
+interface Message {
+  sender: 'user' | 'ai';
+  text: string;
+}
 
-  const sendMessage = async () => {
+const Chat: React.FC = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState('');
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const handleSend = async () => {
     if (input.trim() === '') return;
 
-    const newMessages = [...messages, `You: ${input}`];
-    setMessages(newMessages);
+    const userMessage: Message = { sender: 'user', text: input };
+    setMessages([...messages, userMessage]);
     setInput('');
 
-    const response = await fetchOpenAIResponse(input);
-    setMessages([...newMessages, `AI: ${response}`]);
+    try {
+      const aiResponse = await fetchOpenAIResponse(input);
+      const aiMessage: Message = { sender: 'ai', text: aiResponse };
+      setMessages(prevMessages => [...prevMessages, aiMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
-    <div className="chat">
-      <ChatWindow messages={messages} />
-      <MessageInput input={input} setInput={setInput} sendMessage={sendMessage} />
+    <div className="chat-container">
+      <div className="messages">
+        {messages.map((msg, index) => (
+          <div key={index} className={`message ${msg.sender}`}>
+            <div className="message-content">{msg.text}</div>
+          </div>
+        ))}
+        <div ref={chatEndRef} />
+      </div>
+      <div className="input-bar">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+          placeholder="Message ChatGPT"
+        />
+        <button onClick={handleSend}>Send</button>
+      </div>
+      <div className="footer-text">
+        ChatGPT can make mistakes. Check important info.
+      </div>
     </div>
   );
-}
+};
 
 export default Chat;
