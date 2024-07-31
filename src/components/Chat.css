@@ -9,6 +9,7 @@ input:focus, textarea:focus, select:focus {
   height: calc(100vh - 60px);
   margin-top: 60px;
   align-items: center;
+  flex: 1;
 }
 
 .messages {
